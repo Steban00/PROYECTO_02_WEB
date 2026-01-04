@@ -433,6 +433,40 @@ section{
 
 
 
+/* OFFER --------------------- */
+
+.offer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.offer .box-container .box{
+    text-align: center;
+}
+
+.offer .box-container .box img{
+    height: 10rem;
+    margin-bottom: .5rem;
+}
+
+.offer .box-container .box h3{
+    font-size: 2rem;
+    color: var(--color);
+    margin: 1rem 0;
+}
+
+.offer .box-container .box p{
+    line-height: 2;
+    font-size: 1.5rem;
+    color: #666;
+}
+ 
+/* END --------------------- */
+
+
+
 
 
 

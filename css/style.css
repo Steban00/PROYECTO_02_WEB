@@ -468,7 +468,90 @@ section{
 
 
 
+/* FOOTER --------------------- */
 
+.footer{
+    padding: 3rem 7%;
+    color: #fff8f2;
+}
+
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+}
+
+.footer .box-container .box h3{
+    font-family: 'Nunito', sans-serif ;
+    font-size: 2.2rem;
+    color: #222;
+    padding: 1rem 0;
+    font-weight: bold;
+}
+
+.footer .box-container .box h3 i{
+    color: var(--color);
+}
+
+.footer .box-container .box p{
+    color: var(--color);
+    font-family: 'Nunito', sans-serif ;
+}
+
+.footer .box-container .box a{
+    font-size: 1.4rem;
+    color: var(--color);
+    padding: 1rem 0;
+    display: block;
+}
+
+.footer .box-container .box a:hover{
+    text-decoration: underline !important;
+}
+
+.footer .box-container .box a i{
+    padding-right: .5rem;
+}
+
+.footer .box-container .box form input[type="email"]{
+    width: 100%;
+    padding: 1rem 1.2rem;
+    font-size: 1.6rem;
+    color: #222;
+    margin: 1rem 0;
+    border: .1rem solid var(--color);
+    border-radius: .5rem;
+    text-transform: none;
+}
+
+.footer .box-container .box form .btn{
+    background: none;
+}
+
+.footer .box-container .box form .btn:hover{
+    background: var(--color);
+}
+
+.footer .box-container .box .payment{
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.footer .credit{
+    text-align: center;
+    color: #222;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 2rem;
+    padding-top: 2.5rem;
+    border-top: .2rem solid rgba(0,0,0,.1);
+}
+
+.footer .credit span{
+    color: var(--color);
+}
+
+/* END --------------------- */
 
 
 

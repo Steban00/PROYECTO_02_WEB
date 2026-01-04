@@ -383,3 +383,50 @@ section{
 }
 
 /* END --------------------- */
+
+
+/* BANNER --------------------- */
+
+.banner-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+.banner-container .banner{
+    position: relative;
+    height: 25rem;
+    overflow: hidden;
+    border-radius: .5rem;
+}
+
+.banner-container .banner img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.banner-container .banner:hover img{
+    transform: scale(1.1);
+}
+
+.banner-container .banner .content{
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+}
+
+.banner-container .banner .content span{
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.banner-container .banner .content h3{
+    color: #222;
+    padding-top: .5rem;
+    font-size: 2rem;
+}
+
+/* END --------------------- */

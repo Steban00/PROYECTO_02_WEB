@@ -196,3 +196,134 @@ section{
 }
 
 /* FIN --------------------- */
+
+
+
+/* CESTA --------------------- */
+
+.header .shopping-cart{
+    position: absolute;
+    top: 110%; right: -110%;
+    padding: 1rem;
+    border-radius: .5rem;
+    background: #fff;
+    box-shadow: var(--box-shadow);
+    width: 35rem;
+}
+
+.header .shopping-cart.active{
+    right: 2rem;
+    transition: .4s linear;
+}
+
+.header .shopping-cart .box{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    margin: 2rem 0;
+}
+
+.header .shopping-cart .box img{
+    height: 7rem;
+}
+
+.header .shopping-cart .box .fa-trash{
+    font-size: 2rem;
+    position: absolute;
+    top: 50%; right: 2rem;
+    cursor: pointer;
+    color: #666;
+    transform: translateY(-50%);
+}
+
+.header .shopping-cart .box .fa-trash:hover{
+    color: var(--color);
+}
+
+.header .shopping-cart .box .content h3{
+    color: var(--color);
+    font-size: 1.7rem;
+    padding-bottom: 1rem;
+}
+
+.header .shopping-cart .box .content span{
+    color: #666;
+    font-size: 1.6rem;
+}
+
+.header .shopping-cart .box .content .quantity{
+    padding-left: 1rem;
+}
+
+.header .shopping-cart .total{
+    font-size: 2.5rem;
+    padding: 1rem 0;
+    text-align: center;
+    color: var(--color);
+}
+
+.header .shopping-cart .btn{
+    display: block;
+    text-align: center;
+    margin: 1rem;
+}
+
+/* FIN --------------------- */
+
+/* LOGIN --------------------- */
+
+.header .login-form{
+    position: absolute;
+    top: 110%; right: -110%;
+    width: 35rem;
+    background: #fff;
+    box-shadow: var(--box-shadow);
+    padding: 2rem;
+    border-radius: .5rem;
+    text-align: center;
+}
+
+.header .login-form.active{
+    right: 2rem;
+    transition: .4s linear;
+}
+
+.header .login-form h3{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: var(--color);
+}
+
+.header .login-form .box{
+    width: 100%;
+    margin: .7rem 0;
+    background: none;
+    border: .1rem solid var(--color);
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: var(--color);
+    text-transform: none;
+}
+
+.header .login-form p{
+    font-size: 1.4rem;
+    padding: .5rem 0;
+    color: #666;
+}
+
+.header .login-form p a{
+    color: var(--color);
+    text-decoration: underline;
+}
+
+.header .login-form .btn{
+    background: none;
+}
+
+.header .login-form .btn:hover{
+    background: var(--color);
+}
+
+/* FIN --------------------- */

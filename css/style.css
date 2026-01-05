@@ -505,6 +505,54 @@ section{
 
 
 
+/* EXPERIENCE */
+
+.experience .box-container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+
+.experience .box-container .image{
+    flex: 1 1 40rem;
+}
+
+.experience .box-container .image img{
+    width: 100%;
+}
+
+.experience .box-container .container{
+    flex: 1 1 40rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.experience .box-container .container .item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.experience .box-container .container .item .content{
+    margin-left: 2rem;
+}
+
+.experience .box-container .container .item .content h3{
+    font-size: 2.2rem;
+    color: var(--color);
+}
+
+.experience .box-container .container .item .content p{
+    margin: .5rem 0;
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+/* END --------------------- */
+
+
+
 
 
 

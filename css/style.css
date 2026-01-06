@@ -616,6 +616,100 @@ section{
 
 
 
+/* BLOG --------------------- */
+
+.blog-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.col-blog {
+    flex: 1 1 calc(33.333% - 1rem);
+}
+
+
+
+.blog .card {
+    border: 0.1rem solid rgba(0,0,0,.1);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+
+.blog .card-img-wrapper {
+    height: 25rem;
+    overflow: hidden;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.blog .card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+.blog .card-img-wrapper:hover img {
+    transform: scale(1.2);
+    transform-origin: center center;
+}
+
+
+.blog .card-body {
+    padding: 2rem 2.5rem;
+}
+
+
+.blog .card-body .d-flex {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.blog .card-body .d-flex span {
+    font-size: 1.4rem;
+    color: #666;
+}
+
+.blog .card-body .d-flex span i {
+    color: var(--color);
+    padding-right: 0.5rem;
+}
+
+
+.blog .card-body h5.card-title {
+    font-size: 2.2rem;
+    color: #222;
+    font-weight: bold;
+}
+
+
+.blog .card-body p.card-text {
+    font-size: 1.4rem;
+    color: #666;
+    line-height: 2;
+    padding: 1rem 0;
+}
+
+
+.blog .card-body .btn {
+    background: transparent !important;
+    text-decoration: none;
+    
+}
+
+.blog .card-body .btn-primary:hover {
+    background: var(--color) !important;
+    color: #fff !important;
+}
+
+
+/* END --------------------- */
 
 
 

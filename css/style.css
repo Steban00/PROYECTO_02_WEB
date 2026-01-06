@@ -876,4 +876,16 @@ section{
 }
 
 
+@media (max-width: 992px) {
+    .col-blog {
+        flex: 1 1 calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 576px) {
+    .col-blog {
+        flex: 1 1 100%;
+    }
+}
+
 

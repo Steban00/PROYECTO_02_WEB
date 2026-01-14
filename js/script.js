@@ -97,17 +97,20 @@ $(function () {
     });
 
     /* REQUESTS: mock song request form */
-    // clear field errors on input/change
-    $('#request-form').on('input change', 'input, textarea, [type="checkbox"]', function(){
+    /* REQUEST FORM: enhanced validation with modal */
+    // Clear field errors on input/change
+    $('#request-form').on('input change', 'input, textarea', function(){
       const $el = $(this);
-      $el.removeClass('invalid');
-      $el.closest('.row').find('.field-error').text('');
-      $('#request-result').text('').removeClass('error success');
+      const $group = $el.closest('.col-12');
+      $el.removeClass('is-invalid');
+      $group.find('.field-error').text('');
     });
 
     $('#request-form').on('submit', function(e){
       e.preventDefault();
       const $form = $(this);
+      
+      // Get form fields
       const $name = $form.find('[name="name"]');
       const $email = $form.find('[name="email"]');
       const $song = $form.find('[name="song"]');
@@ -116,6 +119,7 @@ $(function () {
       const $note = $form.find('[name="note"]');
       const $consent = $form.find('[name="consent"]');
 
+      // Get values
       const name = $name.val().trim();
       const email = $email.val().trim();
       const song = $song.val().trim();
@@ -124,62 +128,82 @@ $(function () {
       const note = $note.val().trim();
       const consent = $consent.is(':checked');
 
-      // reset previous errors
+      // Reset all errors
       $form.find('.field-error').text('');
-      $form.find('input, textarea').removeClass('invalid');
+      $form.find('input, textarea').removeClass('is-invalid');
 
-      // custom per-field validation
+      // Validation logic
       let hasError = false;
+      const errors = {};
 
+      // Name validation
       if(!name){
-        $name.addClass('invalid');
-        $name.closest('.row').find('.field-error').text('¿Cómo te llamas? Escribe tu nombre.');
+        errors.name = '¿Cómo te llamas? Escribe tu nombre.';
         hasError = true;
       }
 
+      // Song validation
       if(!song){
-        $song.addClass('invalid');
-        $song.closest('.row').find('.field-error').text('Introduce el título de la canción que quieres solicitar.');
+        errors.song = 'Introduce el título de la canción que quieres solicitar.';
         hasError = true;
       }
 
+      // Artist validation
       if(!artist){
-        $artist.addClass('invalid');
-        $artist.closest('.row').find('.field-error').text('Indica el artista para que no nos equivoquemos.');
+        errors.artist = 'Indica el artista para que no nos equivoquemos.';
         hasError = true;
       }
 
+      // Email validation (optional but if provided, must be valid)
+      if(email && !isValidEmail(email)){
+        errors.email = 'Por favor, introduce un correo electrónico válido.';
+        hasError = true;
+      }
+
+      // Consent validation
       if(!consent){
-        $consent.closest('.row').find('.field-error').text('Debes aceptar la política de privacidad para enviar la petición.');
+        errors.consent = 'Debes aceptar la política de privacidad para enviar la petición.';
         hasError = true;
       }
 
+      // Display errors if any
       if(hasError){
-        $('#request-result').attr('aria-live','assertive').text('Corrige los campos marcados en rojo antes de enviar.').addClass('error');
-        // focus first invalid
-        const $first = $form.find('.invalid:first');
-        if($first.length) $first.focus();
+        for(let fieldName in errors){
+          const $field = $form.find('[name="' + fieldName + '"]');
+          if($field.length){
+            $field.addClass('is-invalid');
+            const $errorDiv = $field.closest('.col-12').find('.field-error');
+            $errorDiv.text(errors[fieldName]);
+          }
+        }
+        // Focus first invalid field
+        const firstInvalid = $form.find('.is-invalid:first');
+        if(firstInvalid.length) firstInvalid.focus();
         return;
       }
 
-      // create mock request item
-      const item = `<div class="request-item">
-          <strong>${escapeHtml(song)}</strong> — ${escapeHtml(artist)} <span class="meta">por ${escapeHtml(name)}${when? ' • ' + escapeHtml(when) : ''}</span>
-          <p class="note">${escapeHtml(note)}</p>
-        </div>`;
+      // If no errors, show modal with confirmation
+      $('#modal-song').text(escapeHtml(song));
+      $('#modal-artist').text(escapeHtml(artist));
+      
+      const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+      confirmModal.show();
 
-      // append to list and show confirmation
-      $('#requests-list').prepend(item);
-      $('#request-result').attr('aria-live','polite').text('¡Petición enviada! Gracias — la reproduciremos en la tienda (mock).').removeClass('error').addClass('success');
-
-      // clear form
+      // Clear form after successful submission
       $form[0].reset();
-      setTimeout(()=> $('#request-result').text('').removeClass('success'), 4000);
     });
 
-    // small helper to avoid injecting HTML
+    // Helper function to validate email
+    function isValidEmail(email){
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    // Helper to avoid HTML injection
     function escapeHtml(str){
-      return String(str||'').replace(/[&"'<>]/g, function (s) { return ({'&':'&amp;','"':'&quot;','\'':'&#39;','<':'&lt;','>':'&gt;'}[s]); });
+      return String(str||'').replace(/[&"'<>]/g, function (s) { 
+        return {'&':'&amp;','"':'&quot;','\'':'&#39;','<':'&lt;','>':'&gt;'}[s]; 
+      }); 
     }
 
     // GSAP

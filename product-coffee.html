@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coffee · Beabadoobee | Needle Lab</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <script>document.documentElement.classList.add('js');</script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo"> <img src="images/logo.png" alt="Needle Lab logo"></a>
+        <nav class="navbar">
+            <a href="index.html">Inicio</a>
+            <a href="about.html">Sobre Nosotros</a>
+            <a href="shop.html">Tienda</a>
+            <a href="request.html">Peticiones</a>
+            <a href="blogs.html">Blog</a>
+            <a href="contact.html">Reserva</a>
+        </nav>
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-user" id="login-btn"></div>
+        </div>
+        <form action="" class="search-form">
+            <input type="search" name="" id="search-box" placeholder="Buscar..">
+            <label class="fas fa-search"></label>
+        </form>
+        <div class="shopping-cart">
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="images/cart-1.png" alt="Vinilo Jazz Classics">
+                <div class="content">
+                    <h3>Eternal sunshine · Ariana Grande</h3>
+                    <span class="price">39,99 €</span>
+                    <span class="quantity">Cantidad: 1</span>
+                </div>
+            </div>
+            <div class="total">Total: 39,99 €</div>
+            <a href="#" class="btn">Finalizar compra</a>
+        </div>
+        <form action="" class="login-form">
+            <h3>Iniciar sesión</h3>
+            <input type="email" placeholder="Correo electrónico" class="box">
+            <input type="password" placeholder="Contraseña" class="box">
+            <p>¿Has olvidado tu contraseña? <a href="#">Haz click aquí</a></p>
+            <input type="submit" value="Entrar" class="btn">
+        </form>
+    </header>
+
+    <main class="product-page container">
+        <section class="product row g-4">
+            <div class="product-gallery">
+                <div class="product-image">
+                    <img class="img-fluid" src="images/product-10.png" alt="Coffee · Beabadoobee">
+                </div>
+                <!-- product thumbnails removed: display main image only -->
+            </div>
+            <div class="product-info">
+                <h1>Coffee · Beabadoobee</h1>
+                <div class="price">19,99 €</div>
+                <p class="sku">SKU: COF-010</p>
+                <p class="description">Edición en vinilo de <strong>Coffee</strong> por Beabadoobee. Sonidos nostálgicos y cálidos para escucha íntima.</p>
+                <div class="variant-row">
+                    <label>Formato:</label>
+                    <div class="variants">
+                        <button class="variant active" aria-pressed="true">Vinilo</button>
+                    </div>
+                </div>
+                <div class="quantity-row">
+                    <label for="quantity">Cantidad:</label>
+                    <div class="qty-controls">
+                        <button id="decrease" class="qty-btn" aria-label="Disminuir cantidad" title="Disminuir cantidad"><i class="fas fa-minus" aria-hidden="true"></i></button>
+                        <input id="quantity" type="number" value="1" min="1" aria-label="Cantidad">
+                        <button id="increase" class="qty-btn" aria-label="Aumentar cantidad" title="Aumentar cantidad"><i class="fas fa-plus" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="btn add-to-cart">Añadir al carrito</button>
+                    <button class="btn outline">Comprar ahora</button>
+                </div>
+                <section class="product-details">
+                    <h3>Descripción</h3>
+                    <p>Vinilo en perfecto estado, ideal para sesiones relajadas y coleccionistas.</p>
+                    <h4>Envío y devoluciones</h4>
+                    <p>Envío estándar en 3–5 días laborables. Política de devolución de 14 días.</p>
+                </section>
+            </div>
+        </section>
+
+        <div class="product-continue" role="region" aria-label="Continuar compra" style="text-align:center; margin-top:2.5rem;">
+            <a href="shop.html" class="btn continue-btn" aria-label="Seguir comprando">Seguir comprando</a>
+        </div>
+    </main>
+
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Needle lab </h3>
+                <a href="#" class="links"> <i class="fas fa-phone"></i> +34 91 834 6908</a>
+                <a href="#" class="links"> <i class="fas fa-envelope"></i>info@needlelab.com</a>
+                <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> Calle Gran Vía 97. 28013, Madrid</a>
+            </div>
+            <div class="box">
+                <h3>Categorías</h3>
+                <a href="#">Pop</a>
+                <a href="#">Rock</a>
+                <a href="#">Indie</a>
+                <a href="#">Soul</a>
+                <a href="#">R&B</a>
+            </div>
+            <div class="box">
+                <h3>Accesos directos</h3>
+                <a href="about.html">Sobre Nosotros</a>
+                <a href="shop.html">Tienda</a>
+                <a href="request.html">Peticiones</a>
+                <a href="blogs.html">Blog</a>
+                <a href="contact.html">Reserva</a>
+            </div>
+            <div class="box">
+                <h3>Newsletter</h3>
+                <p>¡Suscríbete a nuestra newsletter para estar al día de todas las actualizaciones!</p>
+                <form action="">
+                    <input type="email" placeholder="Email">
+                    <input type="submit" value="suscribirse" class="btn">
+                </form>
+                <img src="images/payment.png" class="payment" alt="">
+            </div>
+        </div>
+        <div class="credit"> Needle Lab 2025® | Todos los derechos reservados </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script> AOS.init(); </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

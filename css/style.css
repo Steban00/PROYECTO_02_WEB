@@ -38,6 +38,19 @@ html{
     scroll-padding-top: 7rem;
 }
 
+/* Ensure minimum top padding so content is not blocked by fixed header and full-height pages */
+body{
+    padding-top: 50px; /* mínimo 50px según petición */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Allow main content to grow to fill remaining space so footer sticks to bottom */
+main{
+    flex: 1 0 auto;
+}
+
 html::-webkit-scrollbar{
     height: .5rem;
     width: 1rem;
@@ -611,6 +624,230 @@ section{
     color: #fff;
 }
 
+/* PRODUCT PAGE --------------------- */
+/* Hide entrance elements early when JS is available to avoid flash-of-unstyled-content */
+/* Use normal specificity (no !important) so inline styles applied by GSAP can override these during animation */
+.js .product-page .product-image img,
+.js .product-page .product-info > * {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.product-page .product{
+    display: grid;
+    grid-template-columns: 1fr; /* default: single column for small screens, overridden for larger */
+    gap: 3rem;
+    align-items: stretch;
+    margin: 4rem 0;
+}
+
+.product-page .product-gallery{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* allow contents to vertically center when the grid is tall */
+    justify-content: center;
+} 
+
+.product-page .product-image img{
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: .5rem;
+    display: block;
+    margin: 0 auto;
+}
+
+.product-page .product-thumbs{
+    display: flex;
+    gap: .8rem;
+}
+
+.product-page .product-thumbs .thumb{
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+    cursor: pointer;
+    border: .1rem solid rgba(0,0,0,.08);
+    border-radius: .4rem;
+}
+
+.product-page .product-info h1{
+    font-size: 3.2rem;
+    color: var(--color);
+    margin-bottom: .5rem;
+}
+
+.product-page .product-info .price{
+    font-size: 2.8rem;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+}
+
+.product-page .variant-row{
+    margin: 1rem 0;
+}
+
+.product-page .variant-row label{
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin-right: .8rem;
+    color: var(--color);
+}
+
+.product-page .variants .variant{
+    display: inline-block;
+    padding: .9rem 1.4rem;
+    border: .1rem solid rgba(0,0,0,.08);
+    margin-right: .5rem;
+    border-radius: .4rem;
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.product-page .variants .variant.active{
+    background: var(--color-primary);
+    color: #fff;
+    border-color: var(--color-primary);
+}
+
+/* Quantity label and controls - larger and clearer */
+.product-page .quantity-row label{
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin-right: .8rem;
+    color: var(--color);
+}
+
+.product-page .qty-controls{
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+.product-page .qty-controls input[type="number"]{
+    width: 6rem;
+    text-align: center;
+    font-size: 1.9rem;
+    padding: .6rem;
+    border: .1rem solid rgba(0,0,0,.08);
+    border-radius: .4rem;
+}
+
+.product-page .qty-btn{
+    background: none;
+    border: .1rem solid rgba(0,0,0,.08);
+    padding: .6rem 1.2rem;
+    cursor: pointer;
+    font-size: 2.2rem;
+    line-height: 1;
+    border-radius: .4rem;
+}
+
+/* Ensure icons inside qty buttons match text size and align nicely */
+.product-page .qty-btn i{
+    font-size: inherit;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Improve legibility for product pages */
+.product-page .product-info p,
+.product-page .product-details p,
+.product-page .product-info .sku{
+    font-size: 1.8rem;
+    line-height: 1.5;
+    color: #222;
+}
+
+.product-page .variants .variant{
+    font-size: 1.7rem;
+    padding: .8rem 1.2rem;
+}
+
+.product-page .actions .btn{
+    font-size: 1.8rem;
+    padding: 1rem 2.5rem;
+}
+
+/* Continue shopping button styling */
+.product-continue{
+    text-align: center;
+}
+.product-continue .continue-btn{
+    display: inline-block;
+    background: var(--color-primary);
+    color: #fff;
+    border: 0;
+    padding: 1rem 2.5rem;
+    font-size: 2rem;
+    border-radius: .6rem;
+    box-shadow: 0 .6rem 1.2rem rgba(0,0,0,0.12);
+}
+.product-continue .continue-btn:hover{
+    transform: translateY(-3px);
+}
+
+.product-page .tracklist{
+    margin-top: 1rem;
+    padding-left: 1.6rem;
+}
+
+.product-page .tracklist li{
+    font-size: 1.6rem;
+    margin-bottom: .4rem;
+    color: var(--color);
+}
+
+.product-page .qty-controls{
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.product-page .qty-controls input[type="number"]{
+    width: 5rem;
+    text-align: center;
+    font-size: 1.6rem;
+    padding: .4rem;
+    border: .1rem solid rgba(0,0,0,.08);
+}
+
+.product-page .qty-btn{
+    background: none;
+    border: .1rem solid rgba(0,0,0,.08);
+    padding: .5rem 1rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px){
+    .product-page .product{
+        grid-template-columns: 1fr;
+    }
+    .product-page .product-thumbs .thumb{
+        width: 6rem;
+        height: 6rem;
+    }
+}
+
+@media (min-width: 769px){
+    /* Make the product area taller and vertically center columns for large screens */
+    .product-page .product{
+        min-height: 70vh;
+        grid-template-columns: 60% 40%; /* make image column wider */
+    }
+    .product-page .product-gallery{
+        justify-content: center;
+    }
+    .product-page .product-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
 
 /* END --------------------- */
 
@@ -776,10 +1013,63 @@ section{
 
 
 
+/* REQUESTS -- simple form styling */
+.request{
+    padding-top: 2rem;
+}
+
+.request-box{
+    max-width: 80rem;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2.5rem;
+    border: .1rem solid rgba(0,0,0,.06);
+    border-radius: .6rem;
+}
+
+.request-box h2{
+    font-size: 2.4rem;
+    margin-bottom: .5rem;
+}
+
+.request-box p{ color: #666; margin-bottom: 1rem; }
+
+.request-result{ min-height: 2.2rem; margin-bottom: 1rem; color: var(--color); }
+.request-result.error{ color: #c0392b; }
+.request-result.success{ color: #27ae60; }
+
+.request .row{ margin-bottom: .8rem; }
+.request label{ display:block; font-size: 1.4rem; margin-bottom: .4rem; }
+.request input[type="text"], .request input[type="email"], .request textarea{
+    width: 100%; padding: .8rem; border: .1rem solid rgba(0,0,0,.08); border-radius: .4rem; font-size: 1.6rem;
+}
+
+/* Invalid field appearance */
+.request input.invalid, .request textarea.invalid{
+    border-color: #c0392b !important;
+    box-shadow: 0 0 0 4px rgba(192,57,43,0.06);
+    background: #fff6f6;
+}
+
+.field-error{
+    color: #c0392b;
+    font-size: 1.3rem;
+    margin-top: .4rem;
+    min-height: 1.2rem;
+}
+
+.request .checkbox label{ font-size: 1.4rem; }
+
+.requests-list{ margin-top: 1rem; }
+.requests-list .request-item{ padding: .8rem 1rem; border-bottom: .1rem solid rgba(0,0,0,.04); }
+.requests-list .request-item .meta{ color: #666; font-size: 1.3rem; margin-left: .6rem; }
+.requests-list .request-item .note{ margin-top: .4rem; color: #444; }
+
 /* FOOTER --------------------- */
 
 .footer{
     padding: 3rem 7%;
+    margin-top: 3rem; /* espacio entre contenido y footer */
     color: #fff8f2;
 }
 

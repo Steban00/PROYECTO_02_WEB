@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="" type="image/x-icon">
     <link rel="icon" href="" type="i">
     <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
@@ -105,7 +106,99 @@
 
     <!-- end -->
 
+    <!-- request form -->
+    <main class="request container">
+      <section class="request-box">
+        <h2> Pide una canción para la tienda 🎵</h2>
+        <p>Rellena este formulario para solicitar que suene una canción en nuestra tienda física mientras estás disfrutando de tu bebida. (Esto es un mock visual — no hay backend).</p>
 
+        <div id="request-result" class="request-result" role="status" aria-live="polite"></div>
+
+        <form id="request-form" class="form row g-3" novalidate>
+          <div class="row mb-3">
+            <label for="name">Nombre *</label>
+            <input class="form-control" id="name" name="name" type="text" placeholder="Tu nombre" required>
+            <div class="field-error" aria-live="polite"></div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="email">Correo electrónico</label>
+            <input class="form-control" id="email" name="email" type="email" placeholder="ejemplo@correo.com">
+            <div class="field-error" aria-live="polite"></div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="song">Canción *</label>
+            <input class="form-control" id="song" name="song" type="text" placeholder="Título de la canción" required>
+            <div class="field-error" aria-live="polite"></div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="artist">Artista *</label>
+            <input class="form-control" id="artist" name="artist" type="text" placeholder="Artista" required>
+            <div class="field-error" aria-live="polite"></div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="when">Preferencia de horario</label>
+            <input class="form-control" id="when" name="when" type="text" placeholder="Ej.: hoy a las 18:30 / esta tarde">
+            <div class="field-error" aria-live="polite"></div>
+          </div>
+
+          <div class="row mb-3">
+            <label for="note">Nota (opcional)</label>
+            <textarea class="form-control" id="note" name="note" rows="3" placeholder="Mensaje, dedicatoria, etc."></textarea>
+            <div class="field-error" aria-live="polite"></div>
+          </div>
+
+          <div class="row checkbox mb-3">
+            <label><input class="form-check-input" name="consent" type="checkbox" required> Acepto que esta petición se almacena sólo en un mock y doy mi consentimiento para la reproducción en tienda.</label>
+            <div class="field-error" aria-live="polite"></div>
+          </div>
+
+          <div class="row actions">
+            <button class="btn" type="submit">Enviar petición</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>Needle lab </h3>
+                <a href="#" class="links"> <i class="fas fa-phone"></i> +34 91 834 6908</a>
+                <a href="#" class="links"> <i class="fas fa-envelope"></i>info@needlelab.com</a>
+                <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> Calle Gran Vía 97. 28013, Madrid</a>
+            </div>
+            <div class="box">
+                <h3>Categorías</h3>
+                <a href="#">Pop</a>
+                <a href="#">Rock</a>
+                <a href="#">Indie</a>
+                <a href="#">Soul</a>
+                <a href="#">R&B</a>
+            </div>
+            <div class="box">
+                <h3>Accesos directos</h3>
+                <a href="about.html">Sobre Nosotros</a>
+                <a href="shop.html">Tienda</a>
+                <a href="request.html">Peticiones</a>
+                <a href="blogs.html">Blog</a>
+                <a href="contact.html">Reserva</a>
+            </div>
+            <div class="box">
+                <h3>Newsletter</h3>
+                <p>¡Suscríbete a nuestra newsletter para estar al día de todas las actualizaciones!</p>
+                <form action="">
+                    <input type="email" placeholder="Email">
+                    <input type="submit" value="suscribirse" class="btn">
+                </form>
+                <img src="images/payment.png" class="payment" alt="">
+            </div>
+        </div>
+        <div class="credit"> Needle Lab 2025® | Todos los derechos reservados </div>
+    </section>
 
 
 

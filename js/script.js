@@ -1,5 +1,9 @@
 $(function () {
-
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+  
     let search = $('.search-form');
     let cart = $('.shopping-cart');
     let login = $('.login-form');

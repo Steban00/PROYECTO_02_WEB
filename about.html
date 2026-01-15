@@ -9,6 +9,8 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
 </head>
 
 <body> 
@@ -138,18 +140,20 @@
 
     <section class="experience">
 
-        <div class="heading">
-            <h3>La experiencia Needle Lab</h3>
-        </div>
-
-        <div class="box-container">
-
+        <div class="box-container">  
+    
             <div class="image">
-                <img src="images/vinilo.gif" alt="">
+                <model-viewer 
+                    src="assets/vinyl_record-player.glb" 
+                    alt="Vinilo 3D" 
+                    auto-rotate 
+                    camera-controls
+                    style="width: 500px; height: 500px;">
+                </model-viewer>
             </div>
-
+    
             <div class="container">
-
+    
                 <div class="item">
                     <div class="icon">
                         <img src="images/icon-1.png" alt="">
@@ -159,7 +163,7 @@
                         <p>Una cuidada selección de vinilos para descubrir, escuchar y elegir la música que suena en el espacio.</p>    
                     </div>
                 </div>
-
+    
                 <div class="item">
                     <div class="icon">
                         <img src="images/icon-2.png" alt="">
@@ -169,7 +173,7 @@
                         <p>Cafés seleccionados para disfrutar sin prisas mientras la música acompaña el momento.</p>
                     </div>
                 </div>
-
+    
                 <div class="item">
                     <div class="icon">
                         <img src="images/icon-3.png" alt="">
@@ -179,7 +183,7 @@
                         <p>Los clientes forman parte de la experiencia eligiendo la música y compartiendo el ambiente.</p>
                     </div>
                 </div>
-
+    
                 <div class="item">
                     <div class="icon">
                         <img src="images/icon-4.png" alt="">
@@ -189,12 +193,13 @@
                         <p>Un entorno pensado para sentarse, escuchar y vivir la música más allá de la compra.</p>
                     </div>
                 </div>
-
+    
             </div>
-
-        </div>
-
+    
+        </div> 
+    
     </section>
+    
 
     <!-- experience base section ends-->
 

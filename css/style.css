@@ -137,14 +137,7 @@ section{
     color: var(--color);
 }
 
-.header .navbar{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-    display: block;
-    width: 100%;
-    margin: .8rem 0;
-}
+
 
 .header .navbar a{
     font-size: 1.7rem;
@@ -1199,6 +1192,15 @@ section{
   }
 
   @media (max-width: 768px) {
+    
+    .header .navbar{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; 
+        display: block;
+        width: 100%;
+        margin: .8rem 0;
+    }
 
     /* HEADER */
     .header{

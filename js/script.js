@@ -153,6 +153,59 @@ $(function () {
       $('.shopping-cart .total').text('Total: ' + total.toFixed(2).replace('.',',') + ' €');
     });
 
+    // Favoritos: show temporary modal/toast when heart clicked on shop cards
+    $('.shop').on('click', '.box .icons a.fas.fa-heart, .box .icons a.fa-heart', function(e){
+      e.preventDefault();
+      const $link = $(this);
+      const $box = $link.closest('.box');
+      const title = $box.find('.content h3').text().trim() || 'Producto';
+
+      // toggle visual state
+      $link.toggleClass('liked');
+
+      // show notification
+      showFavModal('"' + title + '" añadido a favoritos');
+    });
+
+    // helper to show a centered Bootstrap modal for favorites (creates and removes modal dynamically)
+    function showFavModal(message){
+      // remove any existing fav modal to ensure fresh content
+      const existing = document.getElementById('favModal');
+      if(existing){
+        try{ $(existing).remove(); }catch(e){}
+      }
+
+      const modalHtml = `
+      <div class="modal fade" id="favModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content text-center" style="background: rgba(255,255,255,0.98); border-radius: .6rem;">
+            <div class="modal-body">
+              <div style="font-size:2rem; color:#28a745;"><i class="fas fa-check-circle" aria-hidden="true"></i></div>
+              <h5 class="mt-2 mb-1">${message}</h5>
+              <p class="small text-muted mb-0">Se añadió a tus favoritos</p>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+      $('body').append(modalHtml);
+
+      const modalEl = document.getElementById('favModal');
+      const bsModal = new bootstrap.Modal(modalEl, {keyboard: false, backdrop: true});
+      bsModal.show();
+
+      // auto-hide after 1.8s
+      setTimeout(function(){
+        try{ bsModal.hide(); }catch(e){}
+      }, 1800);
+
+      // remove from DOM after hidden to keep things clean
+      $(modalEl).on('hidden.bs.modal', function(){
+        try{ bsModal.dispose(); }catch(e){}
+        $(this).remove();
+      });
+    }
+
     /* REQUESTS: mock song request form */
     /* REQUEST FORM: enhanced validation with modal */
     // Clear field errors on input/change

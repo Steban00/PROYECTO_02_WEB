@@ -100,6 +100,59 @@ $(function () {
       setTimeout(()=> $('.shopping-cart').removeClass('active'), 3000);
     });
 
+    // Add-to-cart for shop product cards (click shopping-cart icon)
+    $('.shop').on('click', '.box .icons a.fas.fa-shopping-cart, .box .icons a.fa-shopping-cart', function(e){
+      e.preventDefault();
+      const $box = $(this).closest('.box');
+      const title = $box.find('.content h3').text().trim();
+      let priceText = $box.find('.content .price').text().trim();
+      // normalize price
+      priceText = priceText.replace('€','').trim().replace(',','.');
+      const price = parseFloat(priceText) || 0;
+      const qty = 1;
+      const img = $box.find('.image img').attr('src') || '';
+
+      const itemHtml = `<div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="${img}" alt="${title}">
+                <div class="content">
+                    <h3>${title}</h3>
+                    <span class="price">${price.toFixed(2).replace('.',',')} €</span>
+                    <span class="quantity">Cantidad: ${qty}</span>
+                </div>
+            </div>`;
+
+      // add to cart UI
+      $('.shopping-cart').prepend(itemHtml);
+
+      // recompute total
+      let total = 0;
+      $('.shopping-cart .box .content .price').each(function(){
+        let p = $(this).text().replace('€','').trim().replace(',','.');
+        total += parseFloat(p) || 0;
+      });
+      $('.shopping-cart .total').text('Total: ' + total.toFixed(2).replace('.',',') + ' €');
+
+      // show cart briefly
+      $('.shopping-cart').addClass('active');
+      setTimeout(()=> $('.shopping-cart').removeClass('active'), 3000);
+    });
+
+    // Remove item from cart (delegated) - works for items present on load and items added later
+    $('.shopping-cart').on('click', '.box .fa-trash', function(e){
+      e.preventDefault();
+      const $box = $(this).closest('.box');
+      $box.remove();
+
+      // recompute total after removal
+      let total = 0;
+      $('.shopping-cart .box .content .price').each(function(){
+        let p = $(this).text().replace('€','').trim().replace(',','.');
+        total += parseFloat(p) || 0;
+      });
+      $('.shopping-cart .total').text('Total: ' + total.toFixed(2).replace('.',',') + ' €');
+    });
+
     /* REQUESTS: mock song request form */
     /* REQUEST FORM: enhanced validation with modal */
     // Clear field errors on input/change

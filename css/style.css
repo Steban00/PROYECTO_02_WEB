@@ -1167,6 +1167,57 @@ section{
 
 /* MEDIA QUERY ---------------------*/
 
+
+
+@media (max-width: 768px) {
+
+    .home{
+      min-height: 100vh;
+      padding: 0 1.5rem;
+    }
+  
+    .home .content{
+      width: 100%;
+      max-width: 100%;
+    }
+  
+    .home .content .img-logo{
+      margin-top: 6rem;     /* menos espacio arriba */
+      width: 350px;        /* antes 500px */
+      max-width: 90%;
+    }
+  
+    .home .content .img-vinilo{
+      width: 80px;         /* antes 120px */
+    }
+  
+    .home .content p{
+      font-size: 1.4rem;   /* antes 2rem */
+      padding: 0 1rem;
+    }
+  
+  }
+
+  @media (max-width: 768px) {
+
+    /* HEADER */
+    .header{
+      padding: 1rem 1.5rem;
+    }
+  
+    .header .logo img{
+      max-width: 140px;
+    }
+  
+    /* ICONOS */
+    .header .icons div{
+      height: 3.5rem;
+      width: 3.5rem;
+      line-height: 3.5rem;
+      font-size: 1.6rem;
+    }
+  
+  }
 @media (max-width:991px){
 
     html{
